@@ -20,18 +20,11 @@ introdction <- tabPanel(
   )
 )
 
-plot_sidebar <- sidebarPanel(
-  selectInput(
-    inputId = "user_category",
-    label = "Select Country",
-    # Fill in the correct code here
-    choices = climate_data$country,
-    selected = "United States",
-    multiple = TRUE)
-)
-
-plot_main <- mainPanel(
-  plotlyOutput(outputId = "climatePlot")
+population_growth <- tabPanel(
+  
+  "Asian Population Difference",
+  img(src = "https://raw.githubusercontent.com/megcheu/LSJ-final-proj/main/Screen%20Shot%202022-03-14%20at%203.49.50%20PM.png", height = "50%", width = "50%", align = "right"),
+            img(src = "https://raw.githubusercontent.com/megcheu/LSJ-final-proj/main/Screen%20Shot%202022-03-14%20at%203.49.17%20PM.png", height = "50%", width = "50%", align = "left"),
 )
 
 plot_2 <- tabPanel(
@@ -64,5 +57,6 @@ ui <- navbarPage(
   
   "Asian community trends",
   introdction,
+  population_growth,
   plot_2
 )
