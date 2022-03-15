@@ -22,6 +22,8 @@ state_2010$state_lower = tolower(state_2010$state)
 state_data_2000 <- merge(state_2000, states, by.x = "state_lower", by.y = "region")
 state_data_2010 <- merge(state_2010, states, by.x = "state_lower", by.y = "region")
 
+asian_hate <- read_csv("https://raw.githubusercontent.com/megcheu/LSJ-final-proj/main/Anti-Asian%20Hate%20Crime%20-%20Sheet1.csv")
+
 server <- function(input, output) {
   
   output$Plot2 <- renderPlotly({
