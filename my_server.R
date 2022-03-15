@@ -25,34 +25,11 @@ state_data_2010 <- merge(state_2010, states, by.x = "state_lower", by.y = "regio
 server <- function(input, output) {
   
   output$Plot2 <- renderPlotly({
+    plot2 <- ggplot(asian_hate) +
+      geom_point(mapping = aes(x=Year, y = Incidents)) +
+      geom_line(mapping = aes(x=Year, y = Incidents))
+    Plot2 <- ggplotly(plot2)
     
-    if (input$plot_type == 1) {
-      ggplot(state_data_2000) +
-        geom_polygon(mapping = aes(x = long, y = lat, group = group, fill = asian_prop)) +
-        scale_fill_gradient(
-          low = "blue",
-          high = "red",
-          space = "Lab",
-          na.value = "grey50",
-          guide = "colourbar",
-          aesthetics = "fill"
-        ) +
-        coord_map() +
-        labs(title = 'Asian Population across the US', subtitle = "2000", fill = "Population") 
-    } else if (input$plot_type == 2) {
-      ggplot(state_data_2010) +
-      geom_polygon(mapping = aes(x = long, y = lat, group = group, fill = asian_prop)) +
-        scale_fill_gradient(
-          low = "blue",
-          high = "red",
-          space = "Lab",
-          na.value = "grey50",
-          guide = "colourbar",
-          aesthetics = "fill"
-        ) +
-        coord_map() +
-        labs(title = 'Asian Population across the US', subtitle = "2010", fill = "Population")
-    }
   })
 }
   
